@@ -26,7 +26,7 @@ module XPDF
       temp_file = Tempfile.new("pdftotext")
       `#{PDFTOTEXT_CMD} '#{file_name}' #{temp_file.path}`
       begin
-        open(TEXT_TEMP_FILE, 'r') do |f|
+        open(temp_file.path, 'r') do |f|
           f.read
         end
       ensure
